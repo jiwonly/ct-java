@@ -13,6 +13,7 @@ public class Main {
 
     static void dfs(int node){
         Visited[node]=true;
+        count++;
 
         for(int next = 1; next<=N; ++next){
             if(!Visited[next] && Graph[node][next] == 1) {
@@ -24,6 +25,7 @@ public class Main {
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+        // N과 E는 다른 줄에 있음
         N = Integer.parseInt(br.readLine());
         E = Integer.parseInt(br.readLine());
 
@@ -40,10 +42,6 @@ public class Main {
         }
 
         dfs(1);
-
-        for(boolean i : Visited){
-            if (i) count++;
-        }
 
         System.out.println(count-1);
     }
